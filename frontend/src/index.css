@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  min-height: 100vh;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7C83FD 0%, #96E6A1 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6B73EC 0%, #85D590 100%);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7C83FD 0%, #96E6A1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, #7C83FD 0%, #96E6A1 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(124, 131, 253, 0.4);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* Circular progress */
+.circular-progress {
+  transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* Warning overlay animation */
+@keyframes pulse-warning {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
+}
+
+.warning-overlay {
+  animation: pulse-warning 1s ease-in-out infinite;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Stat card gradient backgrounds */
+.stat-good {
+  background: linear-gradient(135deg, #6BCB77 0%, #96E6A1 100%);
+}
+
+.stat-bad {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FFA8A8 100%);
+}
+
+.stat-warning {
+  background: linear-gradient(135deg, #FFE066 0%, #FFDAB9 100%);
+}
+
+.stat-info {
+  background: linear-gradient(135deg, #4ECDC4 0%, #A8D8EA 100%);
+}
+
+/* Background decorations */
+.bg-decoration {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.bg-decoration-1 {
+  width: 400px;
+  height: 400px;
+  background: #FFB5C5;
+  top: -100px;
+  right: -100px;
+}
+
+.bg-decoration-2 {
+  width: 300px;
+  height: 300px;
+  background: #B5EAD7;
+  bottom: -50px;
+  left: -50px;
+}
+
+.bg-decoration-3 {
+  width: 200px;
+  height: 200px;
+  background: #A8D8EA;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
