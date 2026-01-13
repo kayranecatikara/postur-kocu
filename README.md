@@ -1,8 +1,8 @@
-# 🧘 Postür Analiz Antrenörü
+# 🧘 Postür Analiz Antrenörü (Postür Koçu)
 
 Intel RealSense D435i derinlik kamerası ve MediaPipe kullanarak gerçek zamanlı postür analizi yapan modern web uygulaması.
 
-![Postür Antrenörü](https://img.shields.io/badge/React-18-blue?logo=react)
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green?logo=fastapi)
 ![Python](https://img.shields.io/badge/Python-3.10+-yellow?logo=python)
 
@@ -15,6 +15,126 @@ Intel RealSense D435i derinlik kamerası ve MediaPipe kullanarak gerçek zamanl�
 - 📊 **Detaylı istatistikler** - Pasta grafikleri ve zaman çizelgesi
 - 🎨 **Modern UI/UX** - Pastel renkler, glassmorphism efektleri
 - 🔄 **WebSocket ile gerçek zamanlı iletişim**
+
+---
+
+## 🚀 Hızlı Kurulum (Adım Adım)
+
+### Gereksinimler
+- Intel RealSense D435i kamera
+- Python 3.10 veya üzeri
+- Node.js 18 veya üzeri
+- Git
+
+---
+
+### 📥 1. Projeyi İndir
+
+```bash
+# Projeyi bilgisayarına klonla
+git clone https://github.com/kayranecatikara/postur-kocu.git
+
+# Proje klasörüne gir
+cd postur-kocu
+```
+
+---
+
+### 🐍 2. Backend Kurulumu (Python)
+
+```bash
+# Backend klasörüne gir
+cd backend
+
+# Virtual environment oluştur (önerilir)
+python3 -m venv venv
+
+# Virtual environment'ı aktif et
+# Linux/Mac:
+source venv/bin/activate
+# Windows:
+# venv\Scripts\activate
+
+# Python bağımlılıklarını yükle
+pip install -r requirements.txt
+```
+
+---
+
+### ⚛️ 3. Frontend Kurulumu (React)
+
+Yeni bir terminal aç ve:
+
+```bash
+# Proje klasörüne git (klonladığın yere göre değiştir)
+cd postur-kocu/frontend
+
+# Node.js bağımlılıklarını yükle
+npm install
+
+# Eğer hata alırsan şunu dene:
+npm install --force
+```
+
+---
+
+### ▶️ 4. Uygulamayı Çalıştır
+
+**İki ayrı terminal** açman gerekiyor:
+
+#### Terminal 1 - Backend:
+```bash
+cd postur-kocu/backend
+
+# Virtual environment aktif et (kurulumda yaptıysan)
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate   # Windows
+
+# Backend'i başlat
+python main.py
+```
+
+Şu mesajı görmelisin:
+```
+🚀 Postür Analiz Antrenörü API başlatıldı!
+📍 API: http://localhost:8000
+📍 Docs: http://localhost:8000/docs
+```
+
+#### Terminal 2 - Frontend:
+```bash
+cd postur-kocu/frontend
+
+# Frontend'i başlat
+npm run dev
+```
+
+Şu mesajı görmelisin:
+```
+VITE v5.x.x  ready in xxx ms
+➜  Local:   http://localhost:3000/
+```
+
+---
+
+### 🌐 5. Uygulamayı Aç
+
+Tarayıcında şu adresi aç: **http://localhost:3000**
+
+🎉 **Tebrikler!** Uygulama hazır!
+
+---
+
+## 📖 Kullanım
+
+1. **"Tespite Başla"** butonuna tıkla
+2. Çalışma süresini seç (15, 25, 45, 60 dakika veya özel)
+3. **"Başlat"** butonuna tıkla
+4. Kamera önünde otur ve çalışmaya başla!
+5. Kötü postürde 7 saniye kalırsan uyarı alırsın ⚠️
+6. Çalışma bitince detaylı istatistiklerini gör 📊
+
+---
 
 ## 🛠️ Teknik Altyapı
 
@@ -32,75 +152,7 @@ Intel RealSense D435i derinlik kamerası ve MediaPipe kullanarak gerçek zamanl�
 - Recharts (grafikler)
 - Canvas Confetti
 
-## 📦 Kurulum
-
-### 1. Backend Kurulumu
-
-```bash
-# Backend klasörüne git
-cd backend
-
-# Virtual environment oluştur (önerilir)
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# veya
-.\venv\Scripts\activate  # Windows
-
-# Bağımlılıkları yükle
-pip install -r requirements.txt
-```
-
-### 2. Frontend Kurulumu
-
-```bash
-# Frontend klasörüne git
-cd frontend
-
-# Bağımlılıkları yükle
-npm install
-```
-
-## 🚀 Çalıştırma
-
-### 1. Backend'i Başlat
-
-```bash
-cd backend
-python main.py
-# veya
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-Backend şu adreste çalışacak: http://localhost:8000
-
-### 2. Frontend'i Başlat
-
-```bash
-cd frontend
-npm run dev
-```
-
-Frontend şu adreste çalışacak: http://localhost:3000
-
-## 📡 API Endpoints
-
-### REST API
-
-| Method | Endpoint | Açıklama |
-|--------|----------|----------|
-| GET | `/` | API durumu |
-| POST | `/api/session/start` | Oturum başlat |
-| POST | `/api/session/stop` | Oturumu sonlandır |
-| GET | `/api/session/stats` | Anlık istatistikler |
-| GET | `/api/session/history` | Oturum geçmişi |
-| POST | `/api/settings/threshold` | Postür eşiğini ayarla |
-| GET | `/api/camera/status` | Kamera durumu |
-
-### WebSocket
-
-| Endpoint | Açıklama |
-|----------|----------|
-| `/ws/posture` | Gerçek zamanlı postür verisi stream'i |
+---
 
 ## 🎯 Postür Analizi Mantığı
 
@@ -113,60 +165,47 @@ Frontend şu adreste çalışacak: http://localhost:3000
 6. 7 saniye boyunca kötü postürde kalınırsa uyarı verilir
 ```
 
-## 📸 Ekran Görüntüleri
+---
 
-### Ana Sayfa
-- Gülen postür ikonu
-- "Tespite Başla" butonu
-- İstatistik kartları
+## 📡 API Endpoints
 
-### Süre Seçim Modalı
-- Hazır süre seçenekleri (15, 25, 45, 60 dk)
-- Özel süre girişi
+### REST API
 
-### Analiz Ekranı
-- Circular progress bar (kalan süre)
-- Kamera görüntüsü (işaretli noktalarla)
-- Anlık durum kartı
-- Canlı istatistikler
-- Uyarı overlay'i
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/` | API durumu |
+| POST | `/api/session/start` | Oturum başlat |
+| POST | `/api/session/stop` | Oturumu sonlandır |
+| GET | `/api/session/stats` | Anlık istatistikler |
+| GET | `/api/session/history` | Oturum geçmişi |
 
-### Sonuç Ekranı
-- Konfeti animasyonu
-- Postür skoru (0-100)
-- Pasta grafiği
-- Zaman çizelgesi
-- Detaylı istatistikler
+### WebSocket
 
-## ⚙️ Konfigürasyon
+| Endpoint | Açıklama |
+|----------|----------|
+| `/ws/posture` | Gerçek zamanlı postür verisi |
 
-### Postür Eşik Değeri
-Varsayılan: 40mm
+---
 
-Değiştirmek için:
+## ❓ Sık Karşılaşılan Sorunlar
+
+### "RealSense kamera başlatılamadı" hatası
+- Kameranın USB'ye bağlı olduğundan emin ol
+- USB 3.0 portu kullan
+- `realsense-viewer` ile kamerayı test et
+
+### "npm install" hatası
 ```bash
-curl -X POST http://localhost:8000/api/settings/threshold \
-  -H "Content-Type: application/json" \
-  -d '{"threshold": 50}'
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install --force
 ```
 
-### Uyarı Eşiği
-Varsayılan: 7 saniye
+### Backend bağlantı hatası
+- Backend'in çalıştığından emin ol (Terminal 1)
+- http://localhost:8000 adresini kontrol et
 
-Oturum başlatırken değiştirilebilir:
-```json
-{
-  "duration_minutes": 25,
-  "warning_threshold": 10
-}
-```
-
-## 🔧 Gereksinimler
-
-- Intel RealSense D435i kamera
-- Python 3.10+
-- Node.js 18+
-- Modern web tarayıcı (Chrome, Firefox, Edge)
+---
 
 ## 📝 Notlar
 
@@ -175,17 +214,18 @@ Oturum başlatırken değiştirilebilir:
 - Oturum geçmişi LocalStorage'da tutulur
 - Sesli uyarı için Web Audio API kullanılır (800Hz beep)
 
-## 🤝 Katkıda Bulunma
+---
 
-1. Fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit edin (`git commit -m 'Add amazing feature'`)
-4. Push edin (`git push origin feature/amazing-feature`)
-5. Pull Request açın
+## 👨‍💻 Geliştirici
+
+**Kayra Necati Kara**
+- GitHub: [@kayranecatikara](https://github.com/kayranecatikara)
+
+---
 
 ## 📄 Lisans
 
-MIT License - Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+MIT License
 
 ---
 
