@@ -1,4 +1,4 @@
-# 🧘 Postür Analiz Antrenörü (Postür Koçu)
+# Postür Analiz Antrenörü (Postür Koçu)
 
 Intel RealSense D435i derinlik kamerası ve MediaPipe kullanarak gerçek zamanlı postür analizi yapan modern web uygulaması.
 
